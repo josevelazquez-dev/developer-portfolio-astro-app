@@ -1,50 +1,73 @@
 ---
-const personalImageAlt = "Jose Velazquez"
+const personalImageAlt = "José Velázquez"
 import Badge from "../components/Badge.astro"
 import LinkedInIcon from "../components/icons/LinkedIn.astro"
 import MailIcon from "../components/icons/Mail.astro"
+import GitHubIcon from "../components/icons/GitHub.astro" 
 import SocialPill from "../components/SocialPill.astro"
 ---
 
-<div class="max-w-xl">
-  <div class="flex gap-4 mb-4">
+<div class="max-w-xl md:max-w-3xl -mt-10 md:-mt-20 transition-all duration-300">
+
+  <!-- Header -->
+  <div class="flex gap-6 mb-6 items-center mt-8">
     <img
-      class="rounded-full shadow-lg size-16"
+      class="rounded-full shadow-xl size-20 object-cover border border-gray-700"
       src="/jose.webp"
       alt={personalImageAlt}
     />
+
     <a
       href="https://www.linkedin.com/in/josevelazquez-dev/"
       target="_blank"
-      rel="noopener"
-      class="flex items-center transition md:justify-center md:hover:scale-105"
+      rel="noopener noreferrer"
+      class="flex items-center transition hover:scale-105"
     >
-      <Badge>Disponible para trabajar</Badge>
+      <Badge>
+        Disponible para trabajar
+      </Badge>
     </a>
   </div>
+
+  <!-- Title -->
   <h1
-    class="text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl dark:text-white"
+    class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-800 dark:text-white"
   >
     Hola, soy José Velázquez
   </h1>
 
-  <p
-    class="mt-6 text-xl text-gray-800 dark:text-gray-300"
-    
-  >
-    <!-- 2 años de experiencia.-->Soy ingeniero en sistemas computacionales de Michoacán, México, 
-    especializado en administración de redes y diseño de plataformas web. 
-    Me dedico al desarrollo de aplicaciones web innovadoras y únicas.
-</p>
+  <!-- Description -->
+  <div class="mt-6 text-lg md:text-xl text-gray-700 dark:text-gray-300 space-y-4 leading-loose">
+    <p>
+      Ingeniero en Sistemas Computacionales especializado en administración de redes y desarrollo de plataformas web modernas.
+    </p>
 
+    <p>
+      Trabajo con tecnologías como JavaScript, React, Astro, Tailwind CSS, Node.js, Express, Next.js, React Native y Firebase, creando aplicaciones funcionales, escalables y optimizadas.
+    </p>
+
+    <p>
+      Actualmente busco integrarme a un equipo de tecnología donde pueda aportar valor real y seguir creciendo profesionalmente.
+    </p>
+  </div>
+
+  <!-- Social Buttons -->
   <nav class="flex flex-wrap gap-4 mt-8">
+    
     <SocialPill href="mailto:josevelazquezolvera2@gmail.com">
-      <MailIcon class="size-4" />
-      Contáctame
+      <MailIcon class="size-5" />
+      josevelazquezolvera2@gmail.com
     </SocialPill>
-    <SocialPill href="https://www.linkedin.com/in/josevelazquez-dev/">
-      <LinkedInIcon class="size-4" />
+
+    <SocialPill href="https://www.linkedin.com/in/josevelazquez-dev/" target="_blank">
+      <LinkedInIcon class="size-5" />
       LinkedIn
     </SocialPill>
+
+    <SocialPill href="https://github.com/josevelazquez-dev" target="_blank">
+      <GitHubIcon class="size-5" />
+      GitHub
+    </SocialPill>
+
   </nav>
 </div>

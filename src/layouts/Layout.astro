@@ -26,14 +26,16 @@ const { description, title } = Astro.props
 
   <body class="relative text-black dark:text-white">
     <div
-      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
+      class="fixed top-0 left-0 z-[-2] h-full w-full bg-gray-50 dark:bg-gray-950
       bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
       dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     >
     </div>
+    
     <Header />
     <slot />
     <Footer />
+
     <style is:global>
       :root {
         color-scheme: light dark;
@@ -64,8 +66,9 @@ const { description, title } = Astro.props
         }
       }
 
+      /* Animación del nav mejorada */
       #header-nav {
-        animation: blur linear both 0.5s;
+        animation: blur linear both;
         animation-timeline: scroll();
         animation-range: 0 500px;
       }
@@ -74,37 +77,22 @@ const { description, title } = Astro.props
         to {
           backdrop-filter: blur(20px);
           border-width: 1px;
-          border-color: rgba(0, 0, 0);
+          border-color: rgba(0, 0, 0, 0.1);
           padding: 0.25rem 0.75rem;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          background-color: rgb(229, 229, 229);
+          background-color: rgba(229, 229, 229, 0.3);
           border-radius: 9999px;
         }
       }
 
       @media (prefers-color-scheme: dark) {
         @keyframes blur {
-          from {
-            border: 0px;
-          }
           to {
-            box-shadow:
-              0px 5px 50px -5px rgba(0, 0, 0, 0.1),
-              0px 0px 0 1px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 5px 50px -5px rgba(0, 0, 0, 0.1), 0px 0px 0 1px rgba(255, 255, 255, 0.1);
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(20px);
             border-width: 1px;
-            border-color: rgba(0, 0, 0);
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.1);
+            padding: 0.25rem 0.75rem;
             border-radius: 9999px;
           }
         }
